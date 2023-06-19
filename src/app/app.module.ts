@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductService } from './table/productservice';
+import { SampleTable } from './table/sample-table.component';
+import { RouterModule } from '@angular/router';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SampleTable
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    TableModule,
+    AppRoutingModule,
+    RouterModule.forRoot([{ path: '', component: SampleTable }])
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ProductService ],
+  bootstrap: [SampleTable]
 })
 export class AppModule { }
